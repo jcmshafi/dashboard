@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button";
 import { CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { User } from "@/types/user";
 
 interface UserDetailsProps {
-  user: string;
+  user: User;
 }
 
 export default function UserDetails({ user }: UserDetailsProps) {

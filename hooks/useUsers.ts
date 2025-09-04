@@ -1,15 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
-export type User = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  phone?: string;
-  website?: string;
-  address?: string;
-  company?: string;
-};
+import { User } from "@/types/user"; 
 
 export default function useUsers(initialPageSize = 5) {
   const [users, setUsers] = useState<User[]>([]);
@@ -24,7 +14,7 @@ export default function useUsers(initialPageSize = 5) {
     setLoading(true);
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((r) => r.json())
-      .then((data) => {
+      .then((data: User[]) => {
         if (!mounted) return;
         setUsers(data);
         setLoading(false);
